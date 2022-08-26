@@ -1,0 +1,28 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.github.jmorjsm.rosepineintellij</id>
+    <name>Rosé Pine</name>
+    <vendor>jmorjsm</vendor>
+
+    <description>
+        <![CDATA[
+        All natural pine, faux fur and a bit of soho vibes for the classy minimalist<br/><br/>
+        Includes all three of the rose pine themes (rose-pine, rose-pine-dawn, rose-pine-moon).
+        ]]>
+    </description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.github.jmorjsm.rosepineintellij.services.MyApplicationService"/>
+        <projectService serviceImplementation="com.github.jmorjsm.rosepineintellij.services.MyProjectService"/>
+        <themeProvider id="1c3c4148-e525-4b16-bd57-e2617024172b" path="/rose_pine.theme.json"/>
+        <themeProvider id="23ee4207-419c-4a1a-beea-a12d80398d04" path="/rose_pine_moon.theme.json"/>
+        <themeProvider id="932c8cd1-2bb2-477e-a44c-b4f2abca351e" path="/rose_pine_dawn.theme.json"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="com.github.jmorjsm.rosepineintellij.listeners.MyProjectManagerListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
+</idea-plugin>
